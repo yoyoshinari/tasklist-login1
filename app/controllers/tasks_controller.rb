@@ -22,7 +22,7 @@ class TasksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @task = Task.find(params[:id])
   end
@@ -48,8 +48,8 @@ class TasksController < ApplicationController
   end
   
   private
-
   # Strong Parameter
   def task_params
     params.require(:task).permit(:content)
+  end
 end
