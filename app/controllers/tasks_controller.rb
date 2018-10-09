@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @tasks = Tasklist
   end
 
   def new
