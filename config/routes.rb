@@ -1,27 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  # root to は一番上に持ってきたほうが見やすい
+  root to: 'toppages#index'
 
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'toppages/index'
+  resources :users, only: [:index, :show, :new, :create]
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
-  root to: 'tasks#index'
+
   resources :tasks, only: [:index, :show, :new, :create]
-  root to: 'toppages#index'
   
   get 'signup', to: 'users#new'
   
