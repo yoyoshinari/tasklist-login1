@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+    protect_from_forgery with: :exception
+    
+    include SessionsHelper
+    
+    private
   
-  include SessionsHelper
-  
-  private
-
-  def require_user_logged_in
-    unless logged_in?
-      redirect_to login_url
+    def require_user_logged_in
+      unless logged_in?
+        redirect_to login_url
+      end
+    def counts(user)
+      @count_tasks = user.tasks.count
     end
-  end
+   end
 end
