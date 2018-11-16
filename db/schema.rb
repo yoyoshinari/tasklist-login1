@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20181115103241) do
     t.datetime "updated_at", null: false
     t.string   "status"
     t.string   "title"
-    t.string   "user"
     t.integer  "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
   end
