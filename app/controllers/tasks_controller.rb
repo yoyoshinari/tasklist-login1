@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :require_user_logged_in
   
   def index
-    @tasks = Task.all.page(params[:page])
+    @tasks = current_user.tasks.page(params[:page])
   end
 
   def show
